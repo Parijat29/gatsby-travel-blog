@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 import { AppBar, Box, Button, CssBaseline, Tab, Tabs, Toolbar, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-import { rhythm } from "../utils/typography"
+// import { rhythm } from "../utils/typography"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     boxShadow: 'none',
     color: 'inherit',
-    fontStyle: 'normal',
+    textDecoration: 'none',
   },
   centerTitle: {
     flexGrow: 1,
@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(2),
   },
-  
+  offset: theme.mixins.toolbar,
 }));
 
 function TabPanel(props) {
@@ -94,24 +94,28 @@ const Layout = ({ location, title, children }) => {
     );
   } else {
     header = (
-      <AppBar position="static" color="transparent">
-        <Toolbar variant="dense">
-          <Link
-            className={classes.title}
-            to={`/`}
-          >
-            <Typography variant="h6" >
-            {title}
-            </Typography>            
-          </Link>
-          <Tabs value={value} onChange={handleChange} indicatorColor="primary" textColor="primary" centered>
-            <Tab label="Item One" {...a11yProps(0)} />
-            <Tab label="Item Two" {...a11yProps(1)} />
-            <Tab label="Item Three" {...a11yProps(2)} />
-          </Tabs>
-        </Toolbar>
-        
-      </AppBar>
+      <React.Fragment>
+        <AppBar position="fixed">
+          <Toolbar variant="dense">
+            <Link
+              className={classes.title}
+              activeClassName={classes.title}
+              to={`/`}
+            >
+              <Typography variant="h6" >
+              {title}
+              </Typography>            
+            </Link>
+            <Tabs value={value} onChange={handleChange} >
+              <Tab label="Experience" {...a11yProps(0)} />
+              <Tab label="Itenerary" {...a11yProps(1)} />
+              <Tab label="Budget" {...a11yProps(2)} />
+            </Tabs>
+          </Toolbar>
+          
+        </AppBar>
+        <div className={classes.offset} />
+      </React.Fragment>
     );
   }
   return (
@@ -122,12 +126,23 @@ const Layout = ({ location, title, children }) => {
         style={{
           marginLeft: `auto`,
           marginRight: `auto`,
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+          // maxWidth: rhythm(24),
+          // padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
         }}
       >
         
-        <main>{children}</main>
+        <main>
+          <TabPanel value={value} index={0}>
+            Item One
+          </TabPanel>
+          <TabPanel value={value} index={1}>
+            Item Two
+          </TabPanel>
+          <TabPanel value={value} index={2}>
+            Item Three
+          </TabPanel>
+          {children}
+        </main>
         <footer>
           © M&P's Travel Blog {new Date().getFullYear()}, Built with
           {` `}
