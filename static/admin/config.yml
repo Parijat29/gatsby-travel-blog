@@ -2,16 +2,22 @@ backend:
   name: github
   repo: Parijat29/gatsby-travel-blog
 
+publish_mode: editorial_workflow
 media_folder: static/assets
 public_folder: assets
+
+site_url: https://mp-s-travelblog.netlify.app/
+display_url: https://mp-s-travelblog.netlify.app/
+
 
 collections:
   - name: blog
     label: Blog
     folder: content/blog
     create: true
+    delete: true
+    path: '{{slug}}/index'
     fields:
-      - { name: path, label: Path }
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
       - { name: description, label: Description }
