@@ -13,6 +13,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-netlify-cms`,
+      options: {
+        enableIdentityWidget: false,
+      }
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
@@ -67,6 +73,16 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `content/assets/gatsby-icon.png`,
+      },
+    },
+    `gatsby-plugin-top-layout`,
+    {
+      resolve: `gatsby-plugin-material-ui`,
+      // If you want to use styled components you should change the injection order.
+      options: {
+        // stylesProvider: {
+        //   injectFirst: true,
+        // },
       },
     },
     `gatsby-plugin-react-helmet`,

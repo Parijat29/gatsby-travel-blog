@@ -2,14 +2,16 @@ import React from "react"
 import PropTypes from 'prop-types';
 import { Link } from "gatsby"
 
-import { AppBar, Box, Button, CssBaseline, Tab, Tabs, Toolbar, Typography } from "@material-ui/core";
+import { AppBar, Box, Button, CssBaseline, Tab, Tabs, Toolbar, Typography, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-// import { rhythm } from "../utils/typography"
+import Copyright from "./copyright"
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1
+    display: 'flex',
+    flexDirection: 'column',
+    minHeight: '100vh',
   },
   menuButton: {
     marginRight: theme.spacing(2)
@@ -33,6 +35,17 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: theme.spacing(2),
   },
   offset: theme.mixins.toolbar,
+  main: {
+    marginTop: theme.spacing(8),
+    marginBottom: theme.spacing(2),
+  },
+  footer: {
+    padding: theme.spacing(3, 2),
+    alignContent: 'center',
+    marginTop: 'auto',
+    backgroundColor:
+      theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
+  },
 }));
 
 function TabPanel(props) {
@@ -65,7 +78,7 @@ function a11yProps(index) {
   };
 }
 
-const Layout = ({ location, title, children }) => {
+const Layout = ({ location, title, postTitle="", children }) => {
   const rootPath = `${__PATH_PREFIX__}/`;
   
   const classes = useStyles();
@@ -102,9 +115,12 @@ const Layout = ({ location, title, children }) => {
               activeClassName={classes.title}
               to={`/`}
             >
-              <Typography variant="h6" >
-              {title}
-              </Typography>            
+              <Typography variant="h6" display="inline" >
+              {title} | {' '}
+              </Typography>  
+              <Typography variant="subtitle2" display="inline" >
+              {postTitle}
+              </Typography>          
             </Link>
             <Tabs value={value} onChange={handleChange} >
               <Tab label="Experience" {...a11yProps(0)} />
@@ -114,7 +130,7 @@ const Layout = ({ location, title, children }) => {
           </Toolbar>
           
         </AppBar>
-        <div className={classes.offset} />
+        {/* <div className={classes.offset} /> */}
       </React.Fragment>
     );
   }
@@ -122,33 +138,24 @@ const Layout = ({ location, title, children }) => {
     <div className={classes.root}>
       <CssBaseline />
       <header>{header}</header>
-      <div
-        style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          // maxWidth: rhythm(24),
-          // padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
-        
-        <main>
-          <TabPanel value={value} index={0}>
-            Item One
-          </TabPanel>
-          <TabPanel value={value} index={1}>
-            Item Two
-          </TabPanel>
-          <TabPanel value={value} index={2}>
-            Item Three
-          </TabPanel>
-          {children}
-        </main>
-        <footer>
-          © M&P's Travel Blog {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+      <Container maxWidth="md" className={classes.main} component="main">
+        {/* <TabPanel value={value} index={0}>
+          Item One
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          Item Two
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          Item Three
+        </TabPanel> */}
+        {children}
+      </Container>
+      
+      <footer className={classes.footer}>
+        <Container maxWidth="sm">
+          <Copyright />
+        </Container>
+      </footer>
     </div>
   )
 }
