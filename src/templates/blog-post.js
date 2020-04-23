@@ -1,7 +1,8 @@
 import React from "react"
+import PropTypes from 'prop-types';
 import { Link, graphql } from "gatsby"
 
-import { Typography, Divider } from "@material-ui/core"
+import { Box, Typography, Divider } from "@material-ui/core"
 import { makeStyles } from '@material-ui/core/styles';
 
 import Image from 'material-ui-image'
@@ -14,6 +15,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     ...theme.typography.body1,
     color: theme.palette.text.primary,
+    textAlign: 'justify',
     wordBreak: 'break-word',
     '& .anchor-link': {
       marginTop: -96, // Offset for the anchor.
@@ -192,42 +194,91 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <Typography
+      component="div"
+      role="tabpanel"
+      hidden={value !== index}
+      id={`tabpanel-${index}`}
+      aria-labelledby={`tab-${index}`}
+      {...other}
+    >
+      {value === index && <Box p={3}>{children}</Box>}
+    </Typography>
+  );
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired,
+};
+
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
-
   const classes = useStyles();
 
+  const [tabsList, setTabsList] = React.useState({"Experience":0, "Itenerary":1, "Budget":2});
+  const [value, setValue] = React.useState(0);
+
   return (
-    <Layout location={location} title={siteTitle} postTitle={post.frontmatter.title}>
+    <Layout location={location} title={siteTitle} tabs={tabsList} setTab={setValue} postTitle={post.frontmatter.title}>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <article>
-        <header>
-          <div>
-            <Image aspectRatio={(16/9)}
-              src="https://picsum.photos/1600/900"
-            />
-          </div>
+      <TabPanel value={value} index={tabsList["Experience"]}>
+        <article>
+          <header>
+            <div>
+              <Image aspectRatio={(16/9)}
+                src="https://picsum.photos/1600/900"
+              />
+            </div>
+            <br/>
+            <Typography variant="h3">
+              {post.frontmatter.title}
+            </Typography>
+            <Typography variant="subtitle1">
+              {post.frontmatter.date}
+            </Typography>
+          </header>
           <br/>
-          <Typography variant="h3">
-            {post.frontmatter.title}
-          </Typography>
-          <Typography variant="subtitle1">
-            {post.frontmatter.date}
-          </Typography>
-        </header>
-        <br/>
-        <section className={classes.root} dangerouslySetInnerHTML={{ __html: post.html }} />
-        <Divider />
+          <section className={classes.root} dangerouslySetInnerHTML={{ __html: post.html }} />
+          <Divider />
+          <section className={classes.root} dangerouslySetInnerHTML={{ __html: post.frontmatter.itenerary }} />
+          <Divider />
 
-        <footer>
-          <Bio />
-        </footer>
-      </article>
+          {/* <footer>
+            <Bio />
+          </footer> */}
+        </article>
+      </TabPanel>
+      <TabPanel value={value} index={tabsList["Itenerary"]}>
+        <article>
+          <section className={classes.root} dangerouslySetInnerHTML={{ __html: post.frontmatter.itenerary }} />
+          <Divider />
+
+          {/* <footer>
+            <Bio />
+          </footer> */}
+        </article>
+      </TabPanel>
+      <TabPanel value={value} index={tabsList["Budget"]}>
+        <article>
+          <section className={classes.root} dangerouslySetInnerHTML={{ __html: post.frontmatter.budget }} />
+          <Divider />
+
+          {/* <footer>
+            <Bio />
+          </footer> */}
+        </article>
+      </TabPanel>
 
       <nav>
         <ul
@@ -276,6 +327,8 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        itenerary
+        budget
       }
     }
   }

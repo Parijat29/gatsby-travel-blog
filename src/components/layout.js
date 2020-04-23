@@ -56,8 +56,8 @@ function TabPanel(props) {
       component="div"
       role="tabpanel"
       hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
+      id={`tabpanel-${index}`}
+      aria-labelledby={`tab-${index}`}
       {...other}
     >
       {value === index && <Box p={3}>{children}</Box>}
@@ -73,18 +73,19 @@ TabPanel.propTypes = {
 
 function a11yProps(index) {
   return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
+    id: `tab-${index}`,
+    'aria-controls': `tabpanel-${index}`,
   };
 }
 
-const Layout = ({ location, title, postTitle="", children }) => {
+const Layout = ({ location, title, tabs={}, setTab, postTitle="", children }) => {
   const rootPath = `${__PATH_PREFIX__}/`;
   
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    setTab(newValue);
   };
 
   let header
@@ -123,9 +124,9 @@ const Layout = ({ location, title, postTitle="", children }) => {
               </Typography>          
             </Link>
             <Tabs value={value} onChange={handleChange} >
-              <Tab label="Experience" {...a11yProps(0)} />
-              <Tab label="Itenerary" {...a11yProps(1)} />
-              <Tab label="Budget" {...a11yProps(2)} />
+            {Object.keys(tabs).map((tab) => 
+              <Tab label={tab} {...a11yProps(tabs[tab])} key={tabs[tab]} />
+            )} 
             </Tabs>
           </Toolbar>
           

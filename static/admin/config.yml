@@ -17,8 +17,11 @@ collections:
     create: true
     delete: true
     path: '{{slug}}/index'
+    sortableFields: ['commit_date', 'title']
     fields:
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
       - { name: description, label: Description }
+      - { name: itenerary, label: Itenerary, widget: richtext }
+      - { name: budget, label: Budget, widget: richtext }
       - { name: body, label: Body, widget: markdown }
