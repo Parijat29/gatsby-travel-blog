@@ -84,7 +84,7 @@ module.exports = {
       resolve: `gatsby-plugin-netlify-cms`,
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
-        enableIdentityWidget: false,
+        enableIdentityWidget: true,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
