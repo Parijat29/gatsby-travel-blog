@@ -4,9 +4,22 @@ title: A Winter Trip To Dalhousie - Khajjiar
 description: "Budget weekend winter vacation to Dalhousie & Khajjiar, Himachal
   Pradesh, India. Information included: itinerary, transportation, expenses,
   gears & experience"
-itinerary: <p><strong>Test</strong></p><ul><li><strong>Itinerary
-  1</strong></li><li><strong>Itinerary&nbsp;2</strong></li></ul><ol><li>gh</li></ol>
-budget: <p>test para 2</p>
+itinerary: <p><strong>Time of Visit –&nbsp;</strong>10, 11 and 12sth
+  February</p><p><strong>Itinerary</strong></p><p>Day 1 – Jammu to
+  Dalhousie</p><ul><li>Snow point</li><li>St. John’s Church</li><li>Evening
+  stroll at Gandhi Chowk and Mall Road</li></ul><p>Day 2 – Dalhousie Khajjiar
+  Dalhousie</p><ul><li>Chameera
+  dam</li><li>Chamba</li><li>Khajjiar</li><li>Dalhousie public
+  school</li></ul><p>Day 3 – Dalhousie to
+  Jammu</p><p>&nbsp;</p><p><strong>Stay&nbsp;</strong>– Hotel Geetanjali run by
+  HPTDC</p><p>+ve - Budget hotel, walking distance from Gandhi Chowk, Huge
+  rooms, Helpful staff.</p><p>-ve – No mountain view from two bedroom
+  rooms</p><p>Price – (__% winter discount)</p><p><strong>Nearby Offbeat places
+  (approximate distance from Dalhousie)</strong></p><p>Mystic Village – 21
+  km</p><p>Jot – 39 km</p><p><strong>Other Places of Interest (approximate
+  distance from Dalhousie)</strong></p><p>Dharamsala - 115 km</p><p>McLeodgunj –
+  121 km</p><p>Kangra – 122 km</p>
+budget: <p>--No Information Yet--</p>
 ---
 
 Every winter, images of snow clad Himalayan towns splashed my social media feed - people sipping hot beverage inside a dimly lit Café, snow covered porches and tress, furry four legged animals wandering a white landscape and other perfect pictures. So, when my friend invited me and my husband to her weekend marriage at Jammu in February, I could not resist. My plan was to club two more days with the weekend and visit at least one Himalayan town in the peak of winter. Initially I wanted to explore to Srinagar, but the tricky condition of the Banihal Pass dissuaded me from doing so. I settled on Dalhousie and Khajjiar. Since our to and fro flights were from Jammu, we travelled from Jammu to Pathankot to Dalhousie and traced the same route back.  
