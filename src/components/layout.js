@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from 'prop-types';
 import { Link } from "gatsby"
 
-import { AppBar, Box, Button, CssBaseline, Tab, Tabs, Toolbar, Typography, Container } from "@material-ui/core";
+import { AppBar, Box, CssBaseline, Tab, Tabs, Toolbar, Typography, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Copyright from "./copyright"
