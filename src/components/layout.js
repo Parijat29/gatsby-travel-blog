@@ -92,7 +92,7 @@ const Layout = ({ location, title, tabs={}, setTab, postTitle="", children }) =>
 
   if (location.pathname === rootPath) {
     header = (
-      <AppBar position="static" color="transparent">
+      <AppBar position="fixed">
         <Toolbar className={classes.toolbar}>
           <Link
             className={classes.centerTitle}
