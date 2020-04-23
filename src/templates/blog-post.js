@@ -223,10 +223,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const { previous, next } = pageContext
   const classes = useStyles();
 
-  const [tabsList, setTabsList] = React.useState({});
+  const [tabsList] = React.useState({"Experience":0, "itinerary":1, "Budget":2});
   const [value, setValue] = React.useState(0);
-
-  setTabsList({"Experience":0, "itinerary":1, "Budget":2});
   
   return (
     <Layout location={location} title={siteTitle} tabs={tabsList} setTab={setValue} postTitle={post.frontmatter.title}>
