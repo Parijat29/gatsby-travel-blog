@@ -18,10 +18,12 @@ collections:
     delete: true
     path: '{{slug}}/index'
     sortableFields: ['commit_date', 'title']
+    editor:
+      preview: false
     fields:
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
       - { name: description, label: Description }
-      - { name: itenerary, label: Itenerary, widget: "ckEditorwidget" }
+      - { name: itinerary, label: Itinerary, widget: "ckEditorwidget" }
       - { name: budget, label: Budget, widget: "ckEditorwidget" }
       - { name: body, label: Body, widget: markdown }

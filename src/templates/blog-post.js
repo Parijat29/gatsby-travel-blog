@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Image from 'material-ui-image'
 
-import Bio from "../components/bio"
+// import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -223,9 +223,11 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const { previous, next } = pageContext
   const classes = useStyles();
 
-  const [tabsList, setTabsList] = React.useState({"Experience":0, "Itenerary":1, "Budget":2});
+  const [tabsList, setTabsList] = React.useState({});
   const [value, setValue] = React.useState(0);
 
+  setTabsList({"Experience":0, "itinerary":1, "Budget":2});
+  
   return (
     <Layout location={location} title={siteTitle} tabs={tabsList} setTab={setValue} postTitle={post.frontmatter.title}>
       <SEO
@@ -251,17 +253,14 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <br/>
           <section className={classes.root} dangerouslySetInnerHTML={{ __html: post.html }} />
           <Divider />
-          <section className={classes.root} dangerouslySetInnerHTML={{ __html: post.frontmatter.itenerary }} />
-          <Divider />
-
           {/* <footer>
             <Bio />
           </footer> */}
         </article>
       </TabPanel>
-      <TabPanel value={value} index={tabsList["Itenerary"]}>
+      <TabPanel value={value} index={tabsList["itinerary"]}>
         <article>
-          <section className={classes.root} dangerouslySetInnerHTML={{ __html: post.frontmatter.itenerary }} />
+          <section className={classes.root} dangerouslySetInnerHTML={{ __html: post.frontmatter.itinerary }} />
           <Divider />
 
           {/* <footer>
@@ -327,7 +326,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
-        itenerary
+        itinerary
         budget
       }
     }

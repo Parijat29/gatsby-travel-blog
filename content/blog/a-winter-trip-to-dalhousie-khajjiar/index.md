@@ -4,7 +4,7 @@ title: A Winter Trip To Dalhousie - Khajjiar
 description: "Budget weekend winter vacation to Dalhousie & Khajjiar, Himachal
   Pradesh, India. Information included: itinerary, transportation, expenses,
   gears & experience"
-itenerary: <p><strong>Test</strong></p><ul><li><strong>Itinerary
+itinerary: <p><strong>Test</strong></p><ul><li><strong>Itinerary
   1</strong></li><li><strong>Itinerary&nbsp;2</strong></li></ul><ol><li>gh</li></ol>
 budget: <p>test para 2</p>
 ---
