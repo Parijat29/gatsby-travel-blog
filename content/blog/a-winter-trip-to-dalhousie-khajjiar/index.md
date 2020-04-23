@@ -1,9 +1,12 @@
 ---
+date: 2020-04-18T22:12:03.284Z
 title: A Winter Trip To Dalhousie - Khajjiar
-date: "2020-04-18T22:12:03.284Z"
-description: "Budget weekend winter vacation to Dalhousie & Khajjiar, Himachal Pradesh, India. Information included: itinerary, transportation, expenses, gears & experience"
-itenerary: "<p>test para</p>"
-budget: "<p>test para 2</p>"
+description: "Budget weekend winter vacation to Dalhousie & Khajjiar, Himachal
+  Pradesh, India. Information included: itinerary, transportation, expenses,
+  gears & experience"
+itenerary: <p><strong>Test</strong></p><ul><li><strong>Itinerary
+  1</strong></li><li><strong>Itinerary&nbsp;2</strong></li></ul><ol><li>gh</li></ol>
+budget: <p>test para 2</p>
 ---
 
 Every winter, images of snow clad Himalayan towns splashed my social media feed - people sipping hot beverage inside a dimly lit Café, snow covered porches and tress, furry four legged animals wandering a white landscape and other perfect pictures. So, when my friend invited me and my husband to her weekend marriage at Jammu in February, I could not resist. My plan was to club two more days with the weekend and visit at least one Himalayan town in the peak of winter. Initially I wanted to explore to Srinagar, but the tricky condition of the Banihal Pass dissuaded me from doing so. I settled on Dalhousie and Khajjiar. Since our to and fro flights were from Jammu, we travelled from Jammu to Pathankot to Dalhousie and traced the same route back.  
