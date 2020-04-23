@@ -17,6 +17,7 @@ collections:
     create: true
     delete: true
     path: '{{slug}}/index'
+    sortableFields: ['commit_date', 'title']
     fields:
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
